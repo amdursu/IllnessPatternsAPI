@@ -7,7 +7,7 @@ module.exports = {
         let email = req.body.email;
         let password = req.body.password;
 
-        let query1 = `SELECT surname, firstname, password FROM users WHERE email = '${email}'`;
+        let query1 = `SELECT id, surname, firstname, password FROM users WHERE email = '${email}'`;
         db.query(query1, (err, response) => {
             if(err){
                 res.status(500).send('Login failed!');
@@ -17,6 +17,7 @@ module.exports = {
             const match = bcrypt.compareSync(password, hashPassword);
             if(match){
                 const payload = {
+                    id: response[0].id,
                     surname: response[0].surname,
                     firstname: response[0].firstname,
                     email

@@ -4,12 +4,14 @@
   "description": "IllnessPatterns Project backend",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon index.js --ignore 'patientData.json'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Raluca Ionita, Andrei Ursu",
   "license": "ISC",
   "dependencies": {
+    "@abandonware/bleno": "^0.5.1-2",
+    "@abandonware/noble": "^1.9.2-8",
     "bcrypt": "^4.0.1",
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
@@ -17,6 +19,8 @@
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
+    "node-beacon-scanner": "^0.2.2",
+    "node-watch": "^0.6.3",
     "nodemon": "^2.0.2"
   }
 }
