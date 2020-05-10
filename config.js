@@ -1,5 +1,5 @@
 module.exports.dbConfig = {
-    host: 'localhost',
+    host: '192.168.1.176',
     user: 'illnessPatternsUser',
     password: 'illnessPatternsAuth',
     database: 'illness_patterns',

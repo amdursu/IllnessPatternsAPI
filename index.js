@@ -42,35 +42,35 @@ app.listen('3000', () => {
   console.log(`Server started at localhost:3000`);
 });
 
-// var pS = new PrimaryService({
-// 	uuid: '00001234-0000-1000-8000-00805f9b34fb',
-// 	characteristics: [
-// 		new Chr()
-// 	]
-// });
+var pS = new PrimaryService({
+	uuid: '00001234-0000-1000-8000-00805f9b34fb',
+	characteristics: [
+		new Chr()
+	]
+});
 
-// var services = [pS];
+var services = [pS];
 
-// bleno.setServices(services);
+bleno.setServices(services);
 
-// bleno.on('stateChange', function(state) {
-//     console.log('on stateChange: ' + state);
-//     if (state === 'poweredOn') {
-//       bleno.startAdvertising('RPI', ['00001234-0000-1000-8000-00805f9b34fb']);
-//     } else {
-//       bleno.stopAdvertising();
-//     }
-// });
+bleno.on('stateChange', function(state) {
+    console.log('on stateChange: ' + state);
+    if (state === 'poweredOn') {
+      bleno.startAdvertising('RPI', ['00001234-0000-1000-8000-00805f9b34fb']);
+    } else {
+      bleno.stopAdvertising();
+    }
+});
 
-// watch('patientData.json', function(event, filename) {
-//   let data = fs.readFileSync(filename);
-//   if(data != ''){
-//     let patientData = JSON.parse(data);
-//     insertPatientData(patientData);
-//     fs.writeFileSync(filename, '');
-//   }
+watch('patientData.json', function(event, filename) {
+  let data = fs.readFileSync(filename);
+  if(data != ''){
+    let patientData = JSON.parse(data);
+    insertPatientData(patientData);
+    fs.writeFileSync(filename, '');
+  }
 
-// })
+})
 
 
 module.exports = app;
